@@ -1,5 +1,5 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
-import { Configuration, Plugins, setup } from "twind";
+import { Configuration, setup } from "twind";
 
 export * from "twind";
 export const config: Configuration = {
@@ -9,10 +9,15 @@ export const config: Configuration = {
     fontFamily: {
       default: ['"M PLUS Rounded 1c"', "sans-serif"],
     },
+    extend: {
+      colors: {
+        background: "#F5F5F5",
+        card: "#FFFFFF",
+        text: "#1C1C1C",
+        icon: "#7B7B7B",
+      },
+    },
   },
-};
-export const plugins: Plugins = {
-  "fix-jaggy": `transform: rotate(0.05deg);`,
 };
 
 if (IS_BROWSER) setup(config);

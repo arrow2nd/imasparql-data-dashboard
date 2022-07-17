@@ -23,7 +23,7 @@ export default function App(props: AppProps) {
         />
         <link rel="stylesheet" href={asset("./globals.css")} />
       </Head>
-      <main class={tw`font-default`}>
+      <main class={tw`bg-background font-default`}>
         <props.Component />
       </main>
     </>
