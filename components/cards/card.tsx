@@ -11,7 +11,7 @@ export interface CardProps {
 export default function Card({ title, count, icon }: CardProps) {
   return (
     <div
-      class={tw`px-8 py-4 w-96 h-32 flex flex-row justify-between items-center bg-card rounded-md shadow-sm`}
+      class={tw`px-8 py-4 w-80 md:w-96 h-32 flex flex-row justify-between items-center bg-card rounded-md shadow-sm`}
     >
       <span class={tw`space-y-1`}>
         <p class={tw`text-base`}>{title}</p>
