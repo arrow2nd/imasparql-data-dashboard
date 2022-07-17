@@ -1,8 +1,7 @@
 /** @jsx h */
 import { h, ComponentChildren } from "preact";
-import { tw } from "@twind";
 
-interface LinkProps {
+export interface LinkProps {
   class?: string;
   title: string;
   href: string;
@@ -14,9 +13,7 @@ export default function Link(props: LinkProps) {
 
   return (
     <a
-      class={tw`p-2 inline-flex items-center text(background sm) bg-text hover:bg-icon rounded-md shadow-sm transition-colors ${
-        props.class || ""
-      }`}
+      class={props.class || ""}
       title={title}
       href={href}
       target="_blank"
