@@ -12,7 +12,7 @@ export default function App(props: AppProps) {
         <link
           rel="stylesheet"
           href={asset(
-            "https://api.fonts.coollabs.io/css2?family=M+PLUS+Rounded+1c&display=swap"
+            "https://api.fonts.coollabs.io/css2?family=M+PLUS+Rounded+1c:wght@400;500&display=swap"
           )}
         />
         <link
@@ -23,9 +23,9 @@ export default function App(props: AppProps) {
         />
         <link rel="stylesheet" href={asset("./globals.css")} />
       </Head>
-      <main class={tw`bg-background font-default`}>
+      <div class={tw`text-text bg-background font-default`}>
         <props.Component />
-      </main>
+      </div>
     </>
   );
 }
