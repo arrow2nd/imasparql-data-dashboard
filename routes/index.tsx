@@ -4,6 +4,7 @@ import { tw } from "@twind";
 
 import Header from "@components/header/index.tsx";
 import Cards from "@components/cards/index.tsx";
+import Footer from "@components/footer/index.tsx";
 
 export default function Home() {
   // TODO: im@sparqlからデータを取得して生成する
@@ -36,6 +37,7 @@ export default function Home() {
       <main class={tw`flex-1`}>
         <Cards cards={catds} />
       </main>
+      <Footer />
     </div>
   );
 }
