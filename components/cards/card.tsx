@@ -2,13 +2,9 @@
 import { h } from "preact";
 import { tw } from "@twind";
 
-export interface CardProps {
-  title: string;
-  count: string;
-  icon: string;
-}
+import { CardDetail } from "@types/card.ts";
 
-export default function Card({ title, count, icon }: CardProps) {
+export default function Card({ title, count, icon }: CardDetail) {
   return (
     <div
       class={tw`px-8 py-4 w-80 md:w-96 h-32 flex flex-row justify-between items-center bg-card rounded-md shadow-sm`}
