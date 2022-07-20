@@ -7,34 +7,12 @@ import Header from "@components/header/index.tsx";
 import Cards from "@components/cards/index.tsx";
 import Footer from "@components/footer/index.tsx";
 
+import { fetchCardDetails } from "@libs/fetch.ts";
 import { CardDetail } from "@types/card.ts";
 
 export const handler: Handlers<CardDetail[]> = {
-  GET(_req, ctx) {
-    // TODO: im@sparqlからデータを取得して生成する
-    const cards: CardDetail[] = [
-      {
-        title: "アイドル",
-        count: "335",
-        icon: "user",
-      },
-      {
-        title: "ユニット",
-        count: "1520",
-        icon: "users",
-      },
-      {
-        title: "ボイスアイドルオーディション",
-        count: "6",
-        icon: "microphone-2",
-      },
-      {
-        title: "呼び名",
-        count: "5923",
-        icon: "messages",
-      },
-    ];
-
+  async GET(_req, ctx) {
+    const cards = await fetchCardDetails();
     return ctx.render(cards);
   },
 };
