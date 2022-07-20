@@ -6,7 +6,7 @@ import Link from "@components/common/link.tsx";
 
 export default function Footer() {
   return (
-    <div class={tw`w-full p-4 text(icon center)`}>
+    <div class={tw`mt-8 w-full p-4 text(icon center)`}>
       <span>
         {"Made with "}
         <Link
