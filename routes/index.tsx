@@ -8,7 +8,8 @@ import Cards from "@components/cards/index.tsx";
 import Footer from "@components/footer/index.tsx";
 
 import { fetchCardDetails } from "@libs/fetch.ts";
-import { CardDetail } from "@types/card.ts";
+
+import { CardDetail } from "@interfaces/card.ts";
 
 export const handler: Handlers<CardDetail[]> = {
   async GET(_req, ctx) {

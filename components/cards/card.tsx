@@ -2,7 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 
-import { CardDetail } from "@types/card.ts";
+import { CardDetail } from "@interfaces/card.ts";
 
 export default function Card({ title, count, icon }: CardDetail) {
   return (

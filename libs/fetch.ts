@@ -1,5 +1,5 @@
-import { CardDetail } from "@types/card.ts";
-import { ImasparqlResponse } from "@types/imasparql.ts";
+import { CardDetail } from "@interfaces/card.ts";
+import { ImasparqlResponse } from "@interfaces/imasparql.ts";
 
 const baseUrl = "https://sparql.crssnky.xyz/spql/imas/query";
 
@@ -60,6 +60,7 @@ export async function fetchCardDetails(): Promise<CardDetail[]> {
   const url = new URL(baseUrl);
   url.searchParams.append("query", query);
 
+  // TODO: アクセスエラー時の処理・タイムアウトの実装
   const res = await fetch(url.toString());
   const json: ImasparqlResponse = await res.json();
 

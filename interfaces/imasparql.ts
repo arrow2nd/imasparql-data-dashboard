@@ -1,15 +1,15 @@
-type Value = {
+interface Value {
   value: string;
-};
+}
 
-type Binding = {
+interface Binding {
   class: Value;
   count: Value;
   label?: Value;
-};
+}
 
-export type ImasparqlResponse = {
+export interface ImasparqlResponse {
   results: {
     bindings: Binding[];
   };
-};
+}
