@@ -1,11 +1,3 @@
-# fresh project
+# imasparql-data-dashboard
 
-### Usage
-
-Start the project:
-
-```
-deno task start
-```
-
-This will watch the project directory and restart as necessary.
+[im@sparql](https://sparql.crssnky.xyz/imas/)のデータダッシュボード的なもの
