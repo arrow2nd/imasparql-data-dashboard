@@ -6,10 +6,20 @@ import { Head, asset } from "$fresh/runtime.ts";
 import { AppProps } from "$fresh/server.ts";
 
 export default function App(props: AppProps) {
+  const title = "im@sparql Data Dashboard";
+  const desc = "im@sparqlのデータダッシュボード的なものです";
+  const creator = "@arrow_2nd";
+
   return (
     <>
       <Head>
-        <title>im@sparql Data Dashboard</title>
+        <title>{title}</title>
+        <meta name="description" content={desc} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
+        <meta name="twitter:creator" content={creator} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
         <link
           rel="stylesheet"
           href={asset(
