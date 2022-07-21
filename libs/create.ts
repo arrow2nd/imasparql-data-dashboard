@@ -59,13 +59,9 @@ function getIcon(c: string): string {
  * @returns カードに表示するデータの配列
  */
 export function createCardDetails(json: ImasparqlResponse): CardDetail[] {
-  console.log(json);
-
-  const cards = json.results.bindings.map((e): CardDetail => ({
+  return json.results.bindings.map((e): CardDetail => ({
     title: getLabel(e),
     count: e.count.value,
     icon: getIcon(e.class.value),
   }));
-
-  return cards;
 }
