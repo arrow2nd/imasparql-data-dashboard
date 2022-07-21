@@ -1,12 +1,16 @@
 import { CardDetail } from "@interfaces/card.ts";
-import { ImasparqlResponse } from "@interfaces/imasparql.ts";
+import { Binding, ImasparqlResponse } from "@interfaces/imasparql.ts";
 
 /**
- * クラス名をラベルに変換
- * @param c クラス名
+ * ラベルを取得
+ * @param b データ
  * @returns ラベル
  */
-function toLabel(c: string): string {
+function getLabel(b: Binding): string {
+  if (b.label) {
+    return b.label.value;
+  }
+
   const altLabels = new Map([
     ["MusicAlbum", "アルバム"],
     ["MusicRelease", "CD"],
@@ -14,7 +18,7 @@ function toLabel(c: string): string {
     ["MusicRecording", "楽曲"],
   ]);
 
-  return altLabels.get(c) || "Unknown";
+  return altLabels.get(b.class.value) || "不明なデータ";
 }
 
 /**
@@ -25,6 +29,25 @@ function toLabel(c: string): string {
 function getIcon(c: string): string {
   const icons = new Map([
     ["CallName", "messages"],
+    ["ScriptText", "message-circle"],
+    ["Unit", "users"],
+    ["SetlistNumber", "playlist"],
+    ["Clothes", "hanger"],
+    ["CinderellaRankingResult", "trophy"],
+    ["Introduction", "id"],
+    ["Idol", "user"],
+    ["Communication", "book-2"],
+    ["Live", "device-speaker"],
+    ["Event", "calendar-event"],
+    ["Staff", "briefcase"],
+    ["Idol_1st", "history"],
+    ["Facility", "building-community"],
+    ["MusicRecording", "music"],
+    ["Production", "building"],
+    ["CinderellaVoiceIdolAudition", "microphone-2"],
+    ["MusicComposition", "writing"],
+    ["MusicAlbum", "disc"],
+    ["MusicRelease", "disc"],
   ]);
 
   return icons.get(c) || "error-404";
@@ -38,13 +61,11 @@ function getIcon(c: string): string {
 export function createCardDetails(json: ImasparqlResponse): CardDetail[] {
   console.log(json);
 
-  const cards = json.results.bindings.map((e): CardDetail => {
-    return {
-      title: e.label?.value || toLabel(e.class.value),
-      count: e.count.value,
-      icon: getIcon(e.class.value),
-    };
-  });
+  const cards = json.results.bindings.map((e): CardDetail => ({
+    title: getLabel(e),
+    count: e.count.value,
+    icon: getIcon(e.class.value),
+  }));
 
   return cards;
 }

@@ -2,7 +2,7 @@ interface Value {
   value: string;
 }
 
-interface Binding {
+export interface Binding {
   class: Value;
   count: Value;
   label?: Value;
