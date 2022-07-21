@@ -3,7 +3,8 @@ import { createCardDetails } from "./create.ts";
 import { CardDetail } from "@interfaces/card.ts";
 import { ImasparqlResponse } from "@interfaces/imasparql.ts";
 
-const endpointUrl = "https://sparql.crssnky.xyz/spql/imas/query";
+// const endpointUrl = "https://sparql.crssnky.xyz/spql/imas/query";
+const endpointUrl = "https://httpstat.us/500";
 
 const query = `PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -24,12 +25,15 @@ ORDER BY DESC (?count)`;
  * カードに表示するデータを取得
  * @returns カードに表示するデータの配列
  */
-export async function fetchCardDetails(): Promise<CardDetail[]> {
+export async function fetchCardDetails(): Promise<CardDetail[] | undefined> {
   const url = new URL(endpointUrl);
   url.searchParams.append("query", query);
 
-  // TODO: アクセスエラー時の処理・タイムアウトの実装
   const res = await fetch(url.toString());
+  if (!res.ok) {
+    return undefined;
+  }
+
   const json: ImasparqlResponse = await res.json();
 
   return createCardDetails(json);
