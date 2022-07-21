@@ -10,13 +10,13 @@ export default function Card({ title, count, icon }: CardDetail) {
       class={tw`px-8 py-4 w-80 md:w-96 h-32 flex flex-row justify-between items-center bg-card rounded-md shadow-sm`}
     >
       <span class={tw`space-y-1`}>
-        <p class={tw`text-base`}>{title}</p>
-        <p class={tw`font-medium text-4xl`}>
+        <p class={tw`text-sm md:text-base`}>{title}</p>
+        <p class={tw`font-medium text-3xl md:text-4xl`}>
           {count}
-          <span class={tw`ml-1 text-base`}>件</span>
+          <span class={tw`ml-1 text-sm md:text-base`}>件</span>
         </p>
       </span>
-      <i class={tw`ti ti-${icon} text-icon text-7xl`} />
+      <i class={tw`ti ti-${icon} text-icon text-6xl md:text-7xl`} />
     </div>
   );
 }
