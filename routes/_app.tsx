@@ -9,6 +9,7 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
+        <title>im@sparql Data Dashboard</title>
         <link
           rel="stylesheet"
           href={asset(
