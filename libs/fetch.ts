@@ -3,8 +3,7 @@ import { createCardDetails } from "./create.ts";
 import { CardDetail } from "@interfaces/card.ts";
 import { ImasparqlResponse } from "@interfaces/imasparql.ts";
 
-// const endpointUrl = "https://sparql.crssnky.xyz/spql/imas/query";
-const endpointUrl = "https://httpstat.us/500";
+const endpointUrl = "https://sparql.crssnky.xyz/spql/imas/query";
 
 const query = `PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -29,12 +28,22 @@ export async function fetchCardDetails(): Promise<CardDetail[] | undefined> {
   const url = new URL(endpointUrl);
   url.searchParams.append("query", query);
 
-  const res = await fetch(url.toString());
-  if (!res.ok) {
-    return undefined;
+  // 5秒でタイムアウト
+  const ctrl = new AbortController();
+  const id = setTimeout(() => ctrl.abort(), 5000);
+
+  try {
+    const res = await fetch(url.toString(), { signal: ctrl.signal });
+    if (!res.ok) {
+      return;
+    }
+
+    clearTimeout(id);
+
+    const json: ImasparqlResponse = await res.json();
+    return createCardDetails(json);
+  } catch (err) {
+    console.error(err);
+    return;
   }
-
-  const json: ImasparqlResponse = await res.json();
-
-  return createCardDetails(json);
 }
