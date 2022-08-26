@@ -1,10 +1,11 @@
-import { createCardDetails } from "./create.ts";
+import { createCardDetails } from "@libs/create.ts";
 
 import { CardDetail } from "@interfaces/card.ts";
 import { ImasparqlResponse } from "@interfaces/imasparql.ts";
 
 const endpointUrl = "https://sparql.crssnky.xyz/spql/imas/query";
 
+// imasparql内の種類別データ数を取得
 const query = `PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -21,8 +22,8 @@ GROUP BY ?o ?label
 ORDER BY DESC (?count)`;
 
 /**
- * カードに表示するデータを取得
- * @returns カードに表示するデータの配列
+ * カードに表示するデータをimasparqlから取得
+ * @returns データの配列
  */
 export async function fetchCardDetails(): Promise<CardDetail[] | undefined> {
   const url = new URL(endpointUrl);

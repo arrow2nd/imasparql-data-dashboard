@@ -4,6 +4,9 @@ import { tw } from "@twind";
 
 import { CardDetail } from "@interfaces/card.ts";
 
+/**
+ * @params CardDetail カードの詳細
+ */
 export default function Card({ title, count, icon }: CardDetail) {
   return (
     <div
