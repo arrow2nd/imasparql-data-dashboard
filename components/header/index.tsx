@@ -2,8 +2,8 @@
 import { h } from "preact";
 import { tw } from "@twind";
 
-import Logo from "./logo.tsx";
-import Links from "./links.tsx";
+import Logo from "@components/header/logo.tsx";
+import Links from "@components/header/links.tsx";
 
 export default function Header() {
   return (
