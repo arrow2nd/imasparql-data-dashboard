@@ -1,10 +1,7 @@
-import { IS_BROWSER } from "$fresh/runtime.ts";
-import { Configuration, setup } from "twind";
+import { Options } from "$fresh/plugins/twind.ts";
 
-export * from "twind";
-export const config: Configuration = {
+export default {
   darkMode: "class",
-  mode: "silent",
   theme: {
     fontFamily: {
       default: ['"M PLUS Rounded 1c"', "sans-serif"],
@@ -18,6 +15,6 @@ export const config: Configuration = {
       },
     },
   },
-};
+  selfURL: import.meta.url,
+} as Options;
 
-if (IS_BROWSER) setup(config);
