@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import Cards from "@components/cards/index.tsx";
@@ -21,9 +18,9 @@ export const handler: Handlers<CardDetail[]> = {
 
 export default function Home({ data }: PageProps<CardDetail[] | undefined>) {
   return (
-    <div class={tw`p-4 flex flex-col items-center min-h-screen`}>
+    <div class="px-6 flex flex-col items-center min-h-screen">
       <Header />
-      <main class={tw`flex-1`}>{data ? <Cards cards={data} /> : <Err />}</main>
+      <main class="flex-1">{data ? <Cards cards={data} /> : <Err />}</main>
       <Footer />
     </div>
   );
