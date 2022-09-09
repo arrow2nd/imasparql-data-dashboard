@@ -1,4 +1,4 @@
-import Card from "@components/cards/card.tsx";
+import Card from "@components/Card.tsx";
 
 import { CardDetail } from "@interfaces/card.ts";
 

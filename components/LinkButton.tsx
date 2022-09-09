@@ -1,5 +1,5 @@
-import Link from "@components/common/link.tsx";
 import { JSX } from "preact";
+import Link from "@components/Link.tsx";
 
 export default function LinkButton(
   props: JSX.HTMLAttributes<HTMLAnchorElement>
