@@ -1,8 +1,5 @@
 import { CardDetail } from "@interfaces/card.ts";
 
-/**
- * @params CardDetail カードの詳細
- */
 export default function Card({ title, count, icon }: CardDetail) {
   return (
     <div class="px-8 py-4 w-80 md:w-96 h-32 flex flex-row justify-between items-center bg-card rounded-md shadow-sm">

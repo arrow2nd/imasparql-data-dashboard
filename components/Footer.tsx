@@ -1,4 +1,4 @@
-import Link from "@components/common/link.tsx";
+import Link from "@components/Link.tsx";
 
 export default function Footer() {
   return (

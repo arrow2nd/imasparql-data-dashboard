@@ -1,9 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 
-import Cards from "@components/cards/index.tsx";
-import Err from "@components/error/index.tsx";
-import Header from "@components/header/index.tsx";
-import Footer from "@components/footer/index.tsx";
+import Cards from "@components/Cards.tsx";
+import Err from "@components/Error.tsx";
+import Header from "@components/Header.tsx";
+import Footer from "@components/Footer.tsx";
 
 import { fetchCardDetails } from "@libs/fetch.ts";
 
