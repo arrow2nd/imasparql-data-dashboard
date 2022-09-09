@@ -1,25 +1,9 @@
-/** @jsx h */
-import { h, ComponentChildren } from "preact";
+import { JSX } from "preact";
 
-export interface LinkProps {
-  class?: string;
-  title: string;
-  href: string;
-  children: ComponentChildren;
-}
-
-export default function Link(props: LinkProps) {
-  const { title, href, children } = props;
-
+export default function Link(props: JSX.HTMLAttributes<HTMLAnchorElement>) {
   return (
-    <a
-      class={props.class || ""}
-      title={title}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
+    <a {...props} target="_blank" rel="noopener noreferrer">
+      {props.children}
     </a>
   );
 }
